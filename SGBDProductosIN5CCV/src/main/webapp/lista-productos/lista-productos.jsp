@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import =""%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -51,26 +52,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Pepino</td>
-                            <td>Q5.00</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Cebolla</td>
-                            <td>Q3.00</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Tomate</td>
-                            <td>Q4.00</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td>Perejil</td>
-                            <td>Q1.50</td>
-                        </tr>
+                        <% for{
+                        
+                            }%>
                     </tbody>
                 </table>
             </form>

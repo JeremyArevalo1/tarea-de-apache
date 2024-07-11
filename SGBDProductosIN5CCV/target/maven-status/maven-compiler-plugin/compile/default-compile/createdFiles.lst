@@ -1,1 +1,4 @@
+Main.class
 org\jeremyarevalo\webapp\servlet\ProductoServlet.class
+org\jeremyarevalo\webapp\util\JPAUtil.class
+org\jeremyarevalo\webapp\model\Producto.class
