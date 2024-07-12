@@ -5,7 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import =""%>
+<%@page import = "java.util.List" %>
+<%@page import = "org.jeremyarevalo.webapp.model.Producto" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,7 +17,7 @@
     <body>
         <nav class="navbar navbar-dark bg-dark fixed-top position-relative">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../index.jsp">Sistema de gestion de productos</a>
+                <a class="navbar-brand" href="./index.jsp">Sistema de gestion de productos</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -28,13 +29,13 @@
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="../index.jsp">Inicio</a>
+                                <a class="nav-link active" aria-current="page" href="./index.jsp">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../formulario-productos/formulario-productos.jsp">Formulario de productos</a>
+                                <a class="nav-link" href="./formulario-productos/formulario-productos.jsp">Formulario de productos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../lista-productos/lista-productos.jsp">Lista de productos</a>
+                                <a class="nav-link" href="./producto-servlet">Lista de productos</a>
                             </li>
                         </ul>
                     </div>
@@ -48,13 +49,22 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nombre</th>
+                            <th scope="col">Descripcion</th>
+                            <th scope="col">Marca</th>
                             <th scope="col">Precio</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <% for{
-                        
-                            }%>
+                        <% List<Producto> productos = (List) request.getAttribute("productos");%>
+                        <%for(Producto producto : productos) {%>
+                        <tr>
+                            <th scope="row"><%=producto.getProductoId()%></th>
+                            <th scope="row"><%=producto.getNombreProducto()%></th>
+                            <th scope="row"><%=producto.getDescripcionProducto()%></th>
+                            <th scope="row"><%=producto.getMarcaProducto()%></th>
+                            <th scope="row"><%=producto.getPrecioProducto()%></th>
+                        </tr>
+                        <%}%>
                     </tbody>
                 </table>
             </form>
