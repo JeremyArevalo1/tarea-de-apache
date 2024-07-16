@@ -1,6 +1,3 @@
 Main.class
 org\jeremyarevalo\webapp\util\JPAUtil.class
-org\jeremyarevalo\webapp\model\Producto.class
-org\jeremyarevalo\webapp\service\ProductoService.class
-org\jeremyarevalo\webapp\service\IProductoService.class
-org\jeremyarevalo\webapp\servlet\ProductoServlet.class
+.netbeans_automatic_build

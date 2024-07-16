@@ -1,6 +1,7 @@
 package org.jeremyarevalo.webapp.service;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
 import java.util.List;
 import org.jeremyarevalo.webapp.model.Producto;
 import org.jeremyarevalo.webapp.util.JPAUtil;
@@ -21,7 +22,17 @@ public class ProductoService implements IProductoService{
 
     @Override
     public void agregarProductos(Producto producto) {
-        em.persist(producto);
+        EntityTransaction transaction = em.getTransaction();
+        try{
+            transaction.begin();
+            em.persist(producto); //agregar
+            transaction.commit();
+        }catch(Exception e){
+            if(transaction.isActive()){
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
     }
 
     @Override

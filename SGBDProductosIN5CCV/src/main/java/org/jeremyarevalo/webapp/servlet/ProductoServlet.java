@@ -53,5 +53,16 @@ public class ProductoServlet extends HttpServlet {
         getServletContext().getRequestDispatcher("/formulario-productos/formulario-productos.jsp").forward(req, resp);
 
     }
+    
+    public void agregarProducto(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+        String nombre = req.getParameter("nombreProducto");
+        String marca = req.getParameter("marcaProducto");
+        String descripcion = req.getParameter("descripcionProducto");
+        double precio = Double.parseDouble(req.getParameter("precioProducto"));
+        
+        ps.agregarProductos(new Producto(nombre, marca, descripcion, precio));
+        
+        resp.sendRedirect();
+    }
 
 }
