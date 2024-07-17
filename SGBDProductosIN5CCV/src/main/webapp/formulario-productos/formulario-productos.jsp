@@ -69,6 +69,10 @@
                     <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="descripcionProducto"></textarea>
                     <label for="floatingTextarea">Descripcion</label>
                 </div>
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="marcaProducto"></textarea>
+                    <label for="floatingTextarea">Marca</label>
+                </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">Q</span>
                     <div class="form-floating">

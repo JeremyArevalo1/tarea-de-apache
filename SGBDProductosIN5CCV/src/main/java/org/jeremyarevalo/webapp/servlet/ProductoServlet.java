@@ -33,25 +33,13 @@ public class ProductoServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<String> datosProducto = new ArrayList<>();
-        String nombreProducto = req.getParameter("nombreProducto");
-        String descripcionProducto = req.getParameter("descripcionProducto");
-        String precioProducto = req.getParameter("precioProducto");
-        datosProducto.add(nombreProducto);
-        datosProducto.add(descripcionProducto);
-        datosProducto.add(precioProducto);
-        String msj = null;
-        if (nombreProducto.isEmpty()) {
-            msj = "Nombre campo vacio, llenelo!";
-        } else if (descripcionProducto.isEmpty()) {
-            msj = "Descripcion, campo vacio, llenelo!";
-        } else if (precioProducto.isEmpty()) {
-            msj = "Precio, campo vacio, llenelo";
+        String path = req.getPathInfo();
+        
+        if(path == null || path.equals("/")){
+            agregarProducto(req, resp);
+        }else{
+            resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
         }
-        req.setAttribute("mensaje", msj);
-        req.setAttribute("datosProducto", datosProducto);
-        getServletContext().getRequestDispatcher("/formulario-productos/formulario-productos.jsp").forward(req, resp);
-
     }
     
     public void agregarProducto(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
@@ -62,7 +50,7 @@ public class ProductoServlet extends HttpServlet {
         
         ps.agregarProductos(new Producto(nombre, marca, descripcion, precio));
         
-        resp.sendRedirect();
+        resp.sendRedirect(req.getContextPath() + "/");
     }
 
 }
