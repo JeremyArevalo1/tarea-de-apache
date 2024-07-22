@@ -40,6 +40,8 @@ public class ProductoServlet extends HttpServlet {
         }else{
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
         }
+        
+        
     }
     
     public void agregarProducto(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
